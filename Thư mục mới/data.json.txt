@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Sơn Tùng comeback với MV triệu view",
+    "desc": "MV đạt 1 triệu lượt xem chỉ sau 2 giờ.",
+    "img": "https://source.unsplash.com/featured/?singer",
+    "content": "MV 'Chúng ta của tương lai' với hình ảnh đẹp mắt và giai điệu bắt tai.",
+    "category": "ca-si"
+  },
+  {
+    "title": "Lan Ngọc xác nhận dự án mới",
+    "desc": "Vai diễn bác sĩ gây chú ý.",
+    "img": "https://source.unsplash.com/featured/?actress",
+    "content": "Cô vào vai bác sĩ trong phim truyền hình mới.",
+    "category": "dien-vien"
+  },
+  {
+    "title": "Ngô Kiến Huy lộ ảnh hẹn hò",
+    "desc": "Hình ảnh nắm tay hotgirl tại Đà Lạt.",
+    "img": "https://source.unsplash.com/featured/?celebrity",
+    "content": "Dân mạng xôn xao trước hình ảnh lan truyền.",
+    "category": "scandal"
+  }
+]

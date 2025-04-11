@@ -1,0 +1,60 @@
+let articles = [];
+let visibleCount = 3;
+let currentCategory = 'all';
+
+async function loadData() {
+  const res = await fetch('data.json');
+  articles = await res.json();
+  renderArticles();
+}
+
+function renderArticles() {
+  const container = document.getElementById('newsContainer');
+  const keyword = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = articles.filter(a => {
+    return (currentCategory === 'all' || a.category === currentCategory) &&
+           a.title.toLowerCase().includes(keyword);
+  });
+
+  container.innerHTML = '';
+  filtered.slice(0, visibleCount).forEach(article => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${article.img}" alt="">
+      <h2>${article.title}</h2>
+      <p>${article.desc}</p>
+      <button onclick="openModal('${article.title}', '${article.img}', \`${article.content}\`)">Đọc tiếp</button>
+    `;
+    container.appendChild(card);
+  });
+
+  document.querySelector('.load-more').style.display = (visibleCount >= filtered.length) ? 'none' : 'block';
+}
+
+function loadMore() {
+  visibleCount += 3;
+  renderArticles();
+}
+
+function filterCategory(cat, btn) {
+  currentCategory = cat;
+  visibleCount = 3;
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderArticles();
+}
+
+function openModal(title, img, content) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalImg').src = img;
+  document.getElementById('modalContent').innerText = content;
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+document.getElementById('searchInput').addEventListener('input', renderArticles);
+loadData();

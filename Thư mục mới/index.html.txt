@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin Nóng Showbiz Việt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Tin Nóng Showbiz Việt</h1>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm...">
+  </header>
+  <div class="tabs">
+    <button class="active" onclick="filterCategory('all', this)">Tất cả</button>
+    <button onclick="filterCategory('ca-si', this)">Ca sĩ</button>
+    <button onclick="filterCategory('dien-vien', this)">Diễn viên</button>
+    <button onclick="filterCategory('scandal', this)">Scandal</button>
+  </div>
+  <div class="grid-news" id="newsContainer"></div>
+  <div class="load-more">
+    <button onclick="loadMore()">Tải thêm</button>
+  </div>
+
+  <div id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalContent"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
